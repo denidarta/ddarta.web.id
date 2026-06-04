@@ -1,8 +1,14 @@
 @import 'modern-normalize';
 
+:root {
+	--border-color: #222222;
+	--border-width: 0.5px;
+	--border-default: var(--border-width) solid var(--border-color);
+}
+
 body {
-	background-color: #000000;
-	color: #ffffff;
+	background-color: #ffff;
+	color: #000000;
 	font-family: 'IBM Plex Sans Condensed', sans-serif;
 	font-weight: 400;
 }
@@ -89,4 +95,30 @@ body {
 	font-family: 'IBM Plex Sans Condensed', sans-serif;
 	font-weight: 700;
 	font-style: italic;
+}
+
+h2 {
+	text-transform: uppercase;
+	font-size: 2rem;
+	font-family: 'IBM Plex Sans Condensed', sans-serif;
+	font-weight: 300;
+	margin: 0;
+}
+
+h3 {
+	text-transform: uppercase;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+li {
+	font-size: 1rem;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-weight: 300;
+	list-style: none;
+}
+
+.border-default {
+	border: var(--border-default);
 }
