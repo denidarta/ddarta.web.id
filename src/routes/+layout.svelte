@@ -1,6 +1,7 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
 	import '../app.css';
+	import ScrollManager from '$lib/components/ScrollManager.svelte';
 	let { children } = $props();
 </script>
 
@@ -14,4 +15,5 @@
 	/>
 </svelte:head>
 
+<ScrollManager />
 {@render children()}

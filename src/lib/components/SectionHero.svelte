@@ -1,29 +1,10 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { Application } from '@splinetool/runtime';
 	import { Earth } from 'carbon-icons-svelte';
-
-	let canvasEl: HTMLCanvasElement;
-
-	onMount(() => {
-		const app = new Application(canvasEl);
-		app.load('https://prod.spline.design/qOGbyNl1Z-tJJFz0/scene.splinecode');
-
-		const redirectWheel = (e: WheelEvent) => {
-			e.preventDefault();
-			window.scrollBy({ top: e.deltaY, left: e.deltaX });
-		};
-		canvasEl.addEventListener('wheel', redirectWheel, { passive: false });
-
-		return () => {
-			canvasEl.removeEventListener('wheel', redirectWheel);
-			app.dispose();
-		};
-	});
+	import AnimatedGradient from '$lib/components/AnimatedGradient.svelte';
 </script>
 
 <section class="hero-section">
-	<canvas bind:this={canvasEl}></canvas>
+	<AnimatedGradient config={{ preset: 'Ghost' }} />
 	<div class="hero-content">
 		<h1>Mediator between chaos and clarity</h1>
 		<h2>
@@ -42,17 +23,6 @@
 		overflow: hidden;
 	}
 
-	canvas {
-		display: block;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		inset: 0;
-		pointer-events: auto;
-		z-index: 0;
-		filter: blur(2px);
-	}
-
 	.hero-content {
 		position: relative;
 		z-index: 1;
@@ -63,36 +33,51 @@
 		align-items: flex-start;
 		justify-content: center;
 		gap: 16px;
-		padding-left: 24px;
+		padding: 0 32px;
+		color: #ffffff;
 	}
 
-	.hero-content h1 {
+	h1 {
 		font-size: 10rem;
 		font-family: 'IBM Plex Sans', sans-serif;
 		font-weight: 300;
 		margin: 0;
-		padding: 0;
 		line-height: 9rem;
 	}
 
-	.hero-content h2 {
+	h2 {
 		font-size: 2rem;
 		text-transform: none;
 		text-align: left;
+		font-family: 'IBM Plex Sans', sans-serif;
+		font-weight: 300;
 	}
 
-	.hero-content p {
+	p {
 		font-size: 1.5rem;
 		font-family: 'IBM Plex Sans', sans-serif;
-		margin-top: 8px;
 		font-weight: 300;
 		margin: 0;
-		padding: 0;
 	}
 
-	.hero-content span {
+	span {
 		position: relative;
 		top: 4px;
 		margin-right: 16px;
+	}
+
+	@media (max-width: 767px) {
+		h1 {
+			font-size: 3rem;
+			line-height: 3rem;
+		}
+
+		h2 {
+			font-size: 1.2rem;
+		}
+
+		p {
+			font-size: 1rem;
+		}
 	}
 </style>

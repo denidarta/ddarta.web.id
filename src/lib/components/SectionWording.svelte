@@ -25,4 +25,14 @@
 		font-family: 'IBM Plex Sans', sans-serif;
 		font-size: 2.5rem;
 	}
+
+	@media (max-width: 767px) {
+		section {
+			padding: 0 20px;
+		}
+
+		p {
+			font-size: 1.5rem;
+		}
+	}
 </style>

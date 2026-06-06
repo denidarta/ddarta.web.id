@@ -1,3 +1,20 @@
+import shafiqThumb from '$lib/assets/shafiq_thumb.png';
+import raporBiruThumb from '$lib/assets/rapor_biru_thumb.png';
+import rakaminThumb from '$lib/assets/rakamin_thumb.png';
+import sieradThumb from '$lib/assets/sierad_thumb.png';
+import figmaIcon from '$lib/assets/icons/figma.svg';
+import nextjsIcon from '$lib/assets/icons/nextjs.svg';
+import reactIcon from '$lib/assets/icons/react.svg';
+import nestjsIcon from '$lib/assets/icons/nestjs.svg';
+import postgresqlIcon from '$lib/assets/icons/postgresql.svg';
+import supabaseIcon from '$lib/assets/icons/supabase.svg';
+import dockerIcon from '$lib/assets/icons/docker.svg';
+import mongodbIcon from '$lib/assets/icons/mongodb.svg';
+import svelteIcon from '$lib/assets/icons/svelte.svg';
+import cloudflareIcon from '$lib/assets/icons/cloudflare.svg';
+import vercelIcon from '$lib/assets/icons/vercel.svg';
+import postmanIcon from '$lib/assets/icons/postman.svg';
+
 export function load() {
 	return {
 		skills: [
@@ -9,9 +26,9 @@ export function load() {
 			{ title: 'Tools', items: ['Figma', 'Framer', 'Postman', 'Jira'] }
 		],
 		companies: [
-			{ companyName: 'SHAFIQ', role: 'Product Owner' },
-			{ companyName: 'Fannatics Technology', role: 'Information Architect' },
-			{ companyName: 'Transcosmos Inc', role: 'UX Engineer' }
+			{ companyName: 'SHAFIQ', role: 'Product Owner', year: '2022-Present' },
+			{ companyName: 'Fannatics Technology', role: 'Information Architect', year: '2020-2023' },
+			{ companyName: 'Transcosmos Inc', role: 'UX Engineer', year: '2019-2020' }
 		],
 		projects: [
 			{ name: 'Dattabot', role: 'Product Research' },
@@ -20,35 +37,43 @@ export function load() {
 		],
 		works: [
 			{
-				title: 'Shafiq Platform',
-				services: 'Product Design, Front End',
-				year: 2024,
-				image:
-					'https://pub-0a0201ec0972447ba2e8c2f32ab1b075.r2.dev/Screenshot_5-6-2026_235822_www.shafiq.id.jpeg'
+				title: 'Rapor Biru LMS',
+				services: 'Fullstack web development, Software Architecture',
+				year: 2026,
+				image: raporBiruThumb
 			},
 			{
-				title: 'Fannatics App',
-				services: 'Information Architecture, UX',
-				year: 2023,
-				image:
-					'https://images.unsplash.com/photo-1780206709823-40966ac200ba?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+				title: 'SHAFIQ Web App',
+				services: 'Software Development',
+				year: '2023 - Present',
+				image: shafiqThumb
 			},
 			{
-				title: 'Transcosmos Portal',
+				title: 'Rakamin Academy LMS',
 				services: 'UX Engineering, Design System',
 				year: 2022,
-				image:
-					'https://images.unsplash.com/photo-1780206709823-40966ac200ba?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+				image: rakaminThumb
 			},
 			{
-				title: 'Dattabot Dashboard',
+				title: 'Sierad Input Tools',
 				services: 'Product Research, Prototyping',
 				year: 2023,
-				image:
-					'https://images.unsplash.com/photo-1780206709823-40966ac200ba?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-			},
-			{ title: 'Purwadhika LMS', services: 'UI/UX Design, Front End', year: 2024 },
-			{ title: 'Rakamin Academy', services: 'Product Engineering, Design', year: 2025 }
+				image: sieradThumb
+			}
+		],
+		technologies: [
+			{ name: 'Figma', icon: figmaIcon },
+			{ name: 'Next.js', icon: nextjsIcon },
+			{ name: 'React', icon: reactIcon },
+			{ name: 'NestJS', icon: nestjsIcon },
+			{ name: 'PostgreSQL', icon: postgresqlIcon },
+			{ name: 'Supabase', icon: supabaseIcon },
+			{ name: 'Docker', icon: dockerIcon },
+			{ name: 'MongoDB', icon: mongodbIcon },
+			{ name: 'Svelte', icon: svelteIcon },
+			{ name: 'Vercel', icon: vercelIcon },
+			{ name: 'Cloudflare', icon: cloudflareIcon },
+			{ name: 'Postman', icon: postmanIcon }
 		]
 	};
 }

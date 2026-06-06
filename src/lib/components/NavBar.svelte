@@ -2,8 +2,8 @@
 
 <div class="nav-container">
 	<nav>
-		<p>HOME</p>
-		<p>ABOUT</p>
+		<a href="/">Home</a>
+		<a href="/about">About Me</a>
 	</nav>
 </div>
 
@@ -25,7 +25,7 @@
 		gap: 0.5rem;
 	}
 
-	nav p {
+	nav a {
 		font-family: 'IBM Plex Sans';
 	}
 </style>

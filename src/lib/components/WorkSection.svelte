@@ -92,6 +92,13 @@
 		overflow: hidden;
 	}
 
+	.work-thumb img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
 	.work-meta {
 		display: flex;
 		flex-direction: column;
@@ -102,7 +109,7 @@
 		font-family: 'IBM Plex Sans Condensed', sans-serif;
 		font-size: 0.75rem;
 		font-weight: 300;
-		color: #888;
+		color: #6e6e73;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 	}
@@ -118,9 +125,9 @@
 
 	.work-services {
 		font-family: 'IBM Plex Sans Condensed', sans-serif;
-		font-size: 0.8rem;
+		font-size: 0.75rem;
 		font-weight: 300;
-		color: #666;
+		color: #6e6e73;
 		margin: 0;
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
@@ -135,5 +142,11 @@
 
 	.work-item:hover .work-arrow {
 		opacity: 1;
+	}
+
+	@media (max-width: 767px) {
+		.selected-works-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>
