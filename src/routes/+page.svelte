@@ -3,13 +3,17 @@
 	import SkillListItem from '$lib/components/SkillListItem.svelte';
 	import ExperienceListItem from '$lib/components/ExperienceListItem.svelte';
 	import WorkSection from '$lib/components/WorkSection.svelte';
+	import SectionWording from '$lib/components/SectionWording.svelte';
+	import SectionHero from '$lib/components/SectionHero.svelte';
+	import NavBar from '$lib/components/NavBar.svelte';
+
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 	let openIndex = $state<number | null>(null);
 
 	let wrapperEl: HTMLElement;
-	let spacerEl: HTMLElement;
+	let containerEl: HTMLElement;
 	let ctaEl: HTMLElement;
 
 	onMount(() => {
@@ -19,20 +23,15 @@
 
 		if (delta <= 0) return;
 
-		// footer is fixed — add padding-bottom to page so content doesn't hide behind it
-		document.documentElement.style.paddingBottom = `${naturalHeight}px`;
-
-		// spacer provides the delta scroll room
-		spacerEl.style.height = `${delta}px`;
-
-		// animation starts when spacer top reaches footer top (viewport bottom - naturalHeight)
-		const spacerDocTop = spacerEl.getBoundingClientRect().top + window.scrollY;
-		const animStart = spacerDocTop - (window.innerHeight - naturalHeight);
+		// Container has fixed height = targetHeight — never changes, so page height stays constant
+		containerEl.style.height = `${targetHeight}px`;
 
 		const onScroll = () => {
-			const progress = Math.min(1, Math.max(0, (window.scrollY - animStart) / delta));
+			const rect = containerEl.getBoundingClientRect();
+			// progress 0 when container top hits viewport bottom, 1 when container fully in viewport
+			const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / targetHeight));
 			wrapperEl.style.height = `${naturalHeight + delta * progress}px`;
-			ctaEl.style.fontSize = `${2 + 18 * progress}rem`;
+			ctaEl.style.fontSize = `${Math.min(10, 2 + 18 * progress)}rem`;
 		};
 
 		window.addEventListener('scroll', onScroll, { passive: true });
@@ -41,6 +40,13 @@
 </script>
 
 <main>
+	<NavBar />
+	<div class="hero-sticky-wrapper">
+		<SectionHero />
+	</div>
+	<div class="wording-overlap">
+		<SectionWording />
+	</div>
 	<section class="section-works">
 		<h3>Selected Works</h3>
 		<WorkSection items={data.works} />
@@ -78,43 +84,43 @@
 	</section>
 </main>
 
-<div class="footer-spacer" bind:this={spacerEl}></div>
-
-<footer>
-	<div class="footer-wrapper" bind:this={wrapperEl}>
-		<div class="col col-left">
-			<div class="nav-item empty"></div>
-			<a href="/" class="nav-item">Home</a>
-			<a href="/contact" class="nav-item">Contact</a>
-			<span class="nav-item copyright">© 2026 Denidarta</span>
+<div class="footer-container" bind:this={containerEl}>
+	<footer>
+		<div class="footer-wrapper" bind:this={wrapperEl}>
+			<div class="col col-left">
+				<div class="nav-item empty"></div>
+				<a href="" class="nav-item">Home</a>
+				<a href="/contact" class="nav-item">Contact</a>
+				<span class="nav-item copyright">© 2026 Denidarta</span>
+			</div>
+			<div class="col col-center">
+				<p class="cta-label" bind:this={ctaEl}>Let's Talk</p>
+				<a href="/contact" class="cta-button">Get in Touch</a>
+			</div>
+			<div class="col col-right">
+				<div class="nav-item empty"></div>
+				<a
+					href="https://github.com/denidarta"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="nav-item">Github</a
+				>
+				<a
+					href="https://linkedin.com/in/denidarta"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="nav-item">LinkedIn</a
+				>
+				<a
+					href="https://github.com/denidarta/ddarta.web.id"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="nav-item">Source Code</a
+				>
+			</div>
 		</div>
-		<div class="col col-center">
-			<p class="cta-label" bind:this={ctaEl}>Let's Talk</p>
-			<a href="/contact" class="cta-button">Get in Touch</a>
-		</div>
-		<div class="col col-right">
-			<div class="nav-item empty"></div>
-			<a
-				href="https://github.com/denidarta"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="nav-item">Github</a
-			>
-			<a
-				href="https://linkedin.com/in/denidarta"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="nav-item">LinkedIn</a
-			>
-			<a
-				href="https://github.com/denidarta/ddarta.web.id"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="nav-item">Source Code</a
-			>
-		</div>
-	</div>
-</footer>
+	</footer>
+</div>
 
 <style>
 	main {
@@ -122,7 +128,23 @@
 		max-width: 100vw;
 	}
 
+	.hero-sticky-wrapper {
+		position: sticky;
+		top: 0;
+		z-index: 0;
+		height: 100vh;
+	}
+
+	.wording-overlap {
+		position: relative;
+		z-index: 1;
+		background-color: #fff;
+	}
+
 	.section-works {
+		position: relative;
+		z-index: 1;
+		background-color: #fff;
 		border-bottom: 0.5px solid #222222;
 	}
 
@@ -132,6 +154,9 @@
 	}
 
 	.section-skillset {
+		position: relative;
+		z-index: 1;
+		background-color: #fff;
 		display: flex;
 		flex-direction: row;
 		align-items: flex-start;
@@ -153,6 +178,12 @@
 
 	.section-skillset > * {
 		flex: 0 0 50%;
+	}
+
+	.section-experience {
+		position: relative;
+		z-index: 1;
+		background-color: #fff;
 	}
 
 	.professional-experience {
@@ -178,11 +209,12 @@
 	}
 
 	/* footer */
+	.footer-container {
+		background: #ffff;
+		overflow: hidden;
+	}
+
 	footer {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		right: 0;
 		background: #ffff;
 	}
 
@@ -243,7 +275,7 @@
 
 	.cta-label {
 		font-family: 'IBM Plex Sans Condensed', sans-serif;
-		font-size: 2rem;
+		font-size: 0.5rem;
 		font-weight: 300;
 		text-transform: uppercase;
 		letter-spacing: -0.02em;
@@ -274,5 +306,4 @@
 		background-color: #000;
 		color: #fff;
 	}
-
 </style>

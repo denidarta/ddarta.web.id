@@ -24,7 +24,7 @@ export function load() {
 				services: 'Product Design, Front End',
 				year: 2024,
 				image:
-					'https://images.unsplash.com/photo-1780323241887-8efcb9b85c71?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+					'https://pub-0a0201ec0972447ba2e8c2f32ab1b075.r2.dev/Screenshot_5-6-2026_235822_www.shafiq.id.jpeg'
 			},
 			{
 				title: 'Fannatics App',

@@ -66,6 +66,7 @@
 	.selected-works-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
+		background-color: #fff;
 	}
 
 	.work-item {

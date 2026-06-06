@@ -43,6 +43,7 @@
 		"vitest-browser-svelte": "^2.1.0"
 	},
 	"dependencies": {
+		"@splinetool/runtime": "^1.12.96",
 		"gsap": "^3.15.0"
 	}
 }
