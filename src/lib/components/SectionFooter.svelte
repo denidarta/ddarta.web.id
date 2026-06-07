@@ -34,7 +34,7 @@
 		<div class="footer-wrapper" bind:this={wrapperEl}>
 			<div class="col col-left">
 				<div class="nav-item empty"></div>
-				<a href="" class="nav-item">Home</a>
+				<a href="/" class="nav-item">Home</a>
 				<a href="/contact" class="nav-item">Contact</a>
 				<span class="nav-item copyright">© 2026 Denidarta</span>
 			</div>
