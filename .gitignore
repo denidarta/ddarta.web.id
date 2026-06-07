@@ -24,7 +24,9 @@ vite.config.ts.timestamp-*
 # Playwright
 test-results
 CLAUDE.md
+AGENTS.md
 .claude
 .vscode
 .docs
+.codex
 docs/
