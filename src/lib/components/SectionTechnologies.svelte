@@ -32,13 +32,9 @@
 		background-color: #fff;
 		border-bottom: var(--border-default);
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		align-items: flex-start;
 		border-top: 0.5px solid #222222;
-	}
-
-	section > * {
-		flex: 0 0 50%;
 	}
 
 	section h2 {
@@ -54,8 +50,9 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: repeat(2, 1fr);
+		width: 100%;
 		margin: 0 auto;
-		border-left: 0.5px solid #222222;
+		border-top: var(--border-default);
 	}
 
 	.tech-cell {
@@ -63,8 +60,8 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 12px;
-		padding: 2rem 1rem;
+		gap: 8px;
+		padding: 1.25rem 0.5rem;
 		border-right: var(--border-default);
 		border-bottom: var(--border-default);
 	}
@@ -78,8 +75,8 @@
 	}
 
 	.icon-container {
-		width: 40px;
-		height: 40px;
+		width: 28px;
+		height: 28px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -93,7 +90,7 @@
 
 	.tech-name {
 		font-family: 'IBM Plex Sans Condensed', sans-serif;
-		font-size: 0.75rem;
+		font-size: 0.6rem;
 		font-weight: 400;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
@@ -101,24 +98,32 @@
 		text-align: center;
 	}
 
-	@media (max-width: 767px) {
+	@media (min-width: 768px) {
+		section {
+			flex-direction: row;
+		}
+
+		section > * {
+			flex: 0 0 50%;
+		}
+
 		.tech-grid {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-rows: repeat(2, 1fr);
+			border-left: 0.5px solid #222222;
+			border-top: none;
 		}
 
 		.tech-cell {
-			padding: 1.25rem 0.5rem;
-			gap: 8px;
+			padding: 2rem 1rem;
+			gap: 12px;
 		}
 
 		.icon-container {
-			width: 28px;
-			height: 28px;
+			width: 40px;
+			height: 40px;
 		}
 
 		.tech-name {
-			font-size: 0.6rem;
+			font-size: 0.75rem;
 		}
 	}
 </style>

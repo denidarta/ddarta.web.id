@@ -1,5 +1,7 @@
 <script lang="ts">
 	import NavBar from '$lib/components/NavBar.svelte';
+	import SectionCertification from '$lib/components/SectionCertification.svelte';
+	import SectionAboutFacts from '$lib/components/SectionAboutFacts.svelte';
 </script>
 
 <NavBar />
@@ -14,41 +16,24 @@
 			<p class="subtitle">Fullstack Developer & Product Architect</p>
 		</div>
 	</header>
-	<section class="facts-section">
-		<div class="fact">
-			<span class="fact-number">5+</span>
-			<span class="fact-label">Years in SaaS & Fintech</span>
-		</div>
-		<div class="fact">
-			<span class="fact-number">3</span>
-			<span class="fact-label">Companies as Engineer</span>
-		</div>
-		<div class="fact">
-			<span class="fact-number">Jakarta</span>
-			<span class="fact-label">Based in Indonesia</span>
-		</div>
-		<div class="fact">
-			<span class="fact-number">Full</span>
-			<span class="fact-label">Stack, Front to Back</span>
-		</div>
-	</section>
+	<SectionAboutFacts />
 	<section class="bio-section">
 		<div class="bio-label">
 			<h2>Background</h2>
 		</div>
 		<div class="bio-content">
 			<p>
-				I spent years working in product — close enough to engineering to realize I understood it
+				I spent years working in product close enough to engineering to realize I understood it
 				better than I admitted. That tension between understanding a system and being able to build
 				it became unbearable. So I learned to build.
 			</p>
 			<p>
-				Most developers write code before knowing what the code is supposed to do. I come from the
-				opposite side. I know what something needs to do, why it needs to do it, and who it's for
+				Most developers write code before knowing what the code is supposed to do. I was from the
+				opposite side. I know what something needs to do, why it needs to do, and who it's for
 				before a single line gets written.
 			</p>
 			<p>
-				That cross-disciplinary fluency — product thinking combined with engineering execution — is
+				That cross-disciplinary fluency of product thinking combined with engineering execution is
 				what I bring to every project.
 			</p>
 		</div>
@@ -71,8 +56,8 @@
 				<span class="item-index">02</span>
 				<h3>Product awareness</h3>
 				<p>
-					Every technical decision has a product implication. I hold both in mind simultaneously —
-					what's correct engineering and what ships the right thing.
+					Every technical decision has a product implication. I hold both in mind simultaneously
+					about what's correct engineering and what ships the right thing.
 				</p>
 			</div>
 			<div class="approach-item">
@@ -93,6 +78,8 @@
 			</div>
 		</div>
 	</section>
+
+	<SectionCertification />
 
 	<section class="cta-section">
 		<p class="cta-text">Have something to build?</p>
@@ -258,42 +245,6 @@
 		margin: 0;
 	}
 
-	/* Facts */
-	.facts-section {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		border-bottom: var(--border-default);
-	}
-
-	.fact {
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-		padding: 2rem 24px;
-		border-right: var(--border-default);
-	}
-
-	.fact:last-child {
-		border-right: none;
-	}
-
-	.fact-number {
-		font-family: 'IBM Plex Sans Condensed', sans-serif;
-		font-size: 2.5rem;
-		font-weight: 300;
-		line-height: 1;
-		color: #1d1d1f;
-	}
-
-	.fact-label {
-		font-family: 'IBM Plex Sans Condensed', sans-serif;
-		font-size: 0.75rem;
-		font-weight: 400;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: #6e6e73;
-	}
-
 	/* CTA */
 	.cta-section {
 		display: flex;
@@ -382,18 +333,6 @@
 
 		.approach-item:last-child {
 			border-bottom: none;
-		}
-
-		.facts-section {
-			grid-template-columns: 1fr 1fr;
-		}
-
-		.fact:nth-child(even) {
-			border-right: none;
-		}
-
-		.fact:nth-child(n + 3) {
-			border-top: var(--border-default);
 		}
 	}
 </style>
