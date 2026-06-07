@@ -83,7 +83,7 @@
 
 	<section class="cta-section">
 		<p class="cta-text">Have something to build?</p>
-		<a href="/contact" class="cta-link">Get in touch →</a>
+		<a href="mailto:denidarta@gmail.com" class="cta-link">Get in touch →</a>
 	</section>
 </main>
 

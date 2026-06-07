@@ -40,7 +40,7 @@
 			</div>
 			<div class="col col-center">
 				<p class="cta-label" bind:this={ctaEl}>Let's Talk</p>
-				<a href="/contact" class="cta-button">Get in Touch</a>
+				<a href="mailto:denidarta@gmail.com" class="cta-button">Get in Touch</a>
 			</div>
 			<div class="col col-right">
 				<div class="nav-item empty"></div>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import cv from '$lib/assets/cv_deni_dwi_arta.pdf';
 
 	let scrolled = $state(false);
 
@@ -20,11 +21,11 @@
 
 <div class="nav-container" class:scrolled>
 	<nav>
-		<a href="/" class="brand">
+		<div class="brand">
 			<span class="brand-mark">D</span><span class="brand-dot">·</span><span class="brand-mark"
 				>D</span
 			>
-		</a>
+		</div>
 
 		<ul class="links">
 			{#each links as link (link.href)}
@@ -36,6 +37,8 @@
 				</li>
 			{/each}
 		</ul>
+
+		<a href={cv} download="Deni Dwi Arta - CV.pdf" class="resume-button">Get My Resume</a>
 	</nav>
 </div>
 
@@ -150,6 +153,27 @@
 		opacity: 1;
 	}
 
+	.resume-button {
+		font-family: 'IBM Plex Sans Condensed', sans-serif;
+		font-size: 0.75rem;
+		font-weight: 400;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: inherit;
+		text-decoration: none;
+		padding: 0.55rem 1.5rem;
+		border: var(--border-default);
+		border-radius: 999px;
+		transition:
+			background-color 0.3s ease,
+			color 0.3s ease;
+	}
+
+	.resume-button:hover {
+		background-color: #1d1d1f;
+		color: #fff;
+	}
+
 	@media (max-width: 767px) {
 		.nav-container {
 			padding: 0 20px;
@@ -174,6 +198,11 @@
 
 		.links .index {
 			display: none;
+		}
+
+		.resume-button {
+			font-size: 0.65rem;
+			padding: 0.45rem 1rem;
 		}
 	}
 </style>
