@@ -4,6 +4,12 @@ import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
+	build: {
+		// Homepage is a single continuous scrollytelling route bundling hero, wording,
+		// technologies, works, experience and footer sections together by design —
+		// splitting them would complicate GSAP scroll-trigger measurements for little gain.
+		chunkSizeWarningLimit: 1500
+	},
 	test: {
 		expect: { requireAssertions: true },
 		projects: [
