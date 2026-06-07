@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
 	import gsap from 'gsap';
 	import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 	gsap.registerPlugin(ScrollToPlugin);
 
 	onMount(() => {
+		if (page.url.pathname === '/about') return;
+
 		let target = window.scrollY;
 		let isSnapping = false;
 		let touchStartY = 0;
