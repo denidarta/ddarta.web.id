@@ -43,6 +43,7 @@
 		"vitest-browser-svelte": "^2.1.0"
 	},
 	"dependencies": {
+		"@vercel/analytics": "^2.0.1",
 		"gsap": "^3.15.0"
 	}
 }

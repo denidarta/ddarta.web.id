@@ -2,6 +2,11 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import '../app.css';
 	import ScrollManager from '$lib/components/ScrollManager.svelte';
+	import { dev } from '$app/environment';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
+
 	let { children } = $props();
 </script>
 
