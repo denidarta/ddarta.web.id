@@ -40,13 +40,16 @@ export function load() {
 				title: 'Rapor Biru LMS',
 				services: 'Fullstack web development, Software Architecture',
 				year: 2026,
-				image: raporBiruThumb
+				image: raporBiruThumb,
+				gitrepo: 'https://github.com/denidarta/rapor-biru-backend',
+				website: 'https://raporbiru.web.id'
 			},
 			{
 				title: 'SHAFIQ Web App',
 				services: 'Software Development',
 				year: '2023 - Present',
-				image: shafiqThumb
+				image: shafiqThumb,
+				website: 'https://www.shafiq.id'
 			},
 			{
 				title: 'Rakamin Academy LMS',

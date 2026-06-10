@@ -1,10 +1,15 @@
 <script lang="ts">
+	import GitRepo from '$lib/components/GitRepo.svelte';
+	import Link from '$lib/components/Link.svelte';
+
 	interface WorkItem {
 		title: string;
 		services: string;
 		year: string | number;
 		href?: string;
 		image?: string;
+		gitrepo?: string;
+		website?: string;
 	}
 
 	interface Props {
@@ -16,7 +21,8 @@
 
 <div class="selected-works-grid">
 	{#each items as item (item.title)}
-		<a class="work-item" href={item.href ?? '#'}>
+		<div class="work-item">
+			<a class="work-link" href={item.href ?? '#'} aria-label={item.title}></a>
 			<div class="work-thumb">
 				{#if item.image}
 					<img src={item.image} alt={item.title} />
@@ -27,38 +33,48 @@
 				<h2 class="work-title">{item.title}</h2>
 				<p class="work-services">{item.services}</p>
 			</div>
-			<div class="work-arrow">
-				<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-					<line
-						x1="4"
-						y1="12"
-						x2="20"
-						y2="12"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-					/>
-					<line
-						x1="13"
-						y1="5"
-						x2="20"
-						y2="12"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-					/>
-					<line
-						x1="13"
-						y1="19"
-						x2="20"
-						y2="12"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-					/>
-				</svg>
+			<div class="work-footer">
+				<div class="work-links">
+					{#if item.gitrepo}
+						<GitRepo href={item.gitrepo} />
+					{/if}
+					{#if item.website}
+						<Link href={item.website} />
+					{/if}
+				</div>
+				<div class="work-arrow">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+						<line
+							x1="4"
+							y1="12"
+							x2="20"
+							y2="12"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+						/>
+						<line
+							x1="13"
+							y1="5"
+							x2="20"
+							y2="12"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+						/>
+						<line
+							x1="13"
+							y1="19"
+							x2="20"
+							y2="12"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+						/>
+					</svg>
+				</div>
 			</div>
-		</a>
+		</div>
 	{/each}
 </div>
 
@@ -70,12 +86,12 @@
 	}
 
 	.work-item {
+		position: relative;
 		display: grid;
 		grid-template-rows: auto 1fr auto;
 		border-bottom: var(--border-default);
 		border-right: var(--border-default);
 		padding: 1.5rem;
-		text-decoration: none;
 		color: inherit;
 		gap: 1rem;
 		transition: background-color 0.2s ease;
@@ -83,6 +99,12 @@
 
 	.work-item:hover {
 		background-color: #f5f5f5;
+	}
+
+	.work-link {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
 	}
 
 	.work-thumb {
@@ -133,9 +155,23 @@
 		letter-spacing: 0.04em;
 	}
 
+	.work-footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.work-links {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		gap: 0.5rem;
+	}
+
 	.work-arrow {
 		display: flex;
 		justify-content: flex-end;
+		margin-left: auto;
 		opacity: 0;
 		transition: opacity 0.2s ease;
 	}
